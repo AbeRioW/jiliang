@@ -19,6 +19,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "i2c.h"
+#include "tim.h"
 #include "usart.h"
 #include "gpio.h"
 
@@ -53,7 +54,7 @@ static void ui_setting(void);
 
 int timer_set=60;
 int hr_set=120;
-
+float num_d;
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
@@ -82,7 +83,7 @@ int main(void)
 
   /* USER CODE BEGIN 1 */
 	bool come_with = false;
-  float num_d;
+
 	float weight = 0;
 	uint16_t ir_value, red_value;
     uint8_t heart_rate = 0;
@@ -109,24 +110,23 @@ int main(void)
   MX_GPIO_Init();
   MX_I2C1_Init();
   MX_USART1_UART_Init();
+  MX_USART2_UART_Init();
+  MX_TIM1_Init();
+  MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
 		OLED_Init();
 	OLED_ColorTurn(0);
   OLED_DisplayTurn(0);
 	OLED_Clear();
-	
-	//��ʼ��HX711
+	//初始化HX711
 	HX711_Init(&hx711, GPIOB, GPIO_PIN_4, GPIOB, GPIO_PIN_3);
 	
-	//ȥƤ����
+	//HZ711去毛重
 	HX711_Tare(&hx711, 10);
 	
-	//���ñ���ϵ��
 	HX711_SetScale(&hx711, 1000.0f);
 	
 	DS_Init();
-//			OLED_ShowString(0,16,(uint8_t*)"HELLO",16,1);
-//		OLED_Refresh();
 	    if(MAX30100_Init(&hmax, &hi2c1, GPIOB, GPIO_PIN_5) != HAL_OK)
 			{
 					OLED_ShowString(0,0,(uint8_t*)"hello",8,1);
@@ -165,6 +165,12 @@ int main(void)
                     sprintf(msg, "HR: %03d bpm\r\n", heart_rate);
 										OLED_ShowString(0,0,(uint8_t*)msg,8,1);
 								    OLED_Refresh();
+								
+										if((heart_rate>hr_set)&&(heart_rate<200))
+										{
+												xinlv_yichang();
+											  uart1_send_messageXIN();
+										}
 									
 										num_d = Get_DS_Temperature();		
 										sprintf(msg, "temp:%.2f", num_d); 
@@ -176,18 +182,30 @@ int main(void)
 										weight = HX711_GetWeight(&hx711, 10);
 										if(weight>0)
 										{
-																					sprintf(msg, "HEIGHT:%.2f", weight); 
-										OLED_ShowString(0,40,(uint8_t*)msg,8,1);
-										OLED_Refresh();
+											sprintf(msg, "HEIGHT:%.2f", weight); 
+											OLED_ShowString(0,40,(uint8_t*)msg,8,1);
+											OLED_Refresh();
+											if(weight<10)
+											{
+													anshi_chiyao();
+											}
 										}
 										
-													if(botton ==RIGHT)
+										if(send_messgae)
+										{
+											send_messgae = false;
+											uart1_send_messageCALL();
+										}
+										
+			if(botton ==RIGHT)
 			{
 				 botton = UNPRESS;
 					OLED_Clear();
 					ui_setting();
 				  
 			}
+			
+		
 
                 }
             }

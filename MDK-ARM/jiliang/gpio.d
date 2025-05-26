@@ -8,14 +8,14 @@ jiliang\gpio.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h
 jiliang\gpio.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h
 jiliang\gpio.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h
 jiliang\gpio.o: ../Drivers/CMSIS/Include/core_cm3.h
-jiliang\gpio.o: D:\programFiles\KEIL5\ARM\ARMCC\Bin\..\include\stdint.h
+jiliang\gpio.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 jiliang\gpio.o: ../Drivers/CMSIS/Include/cmsis_version.h
 jiliang\gpio.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
 jiliang\gpio.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
 jiliang\gpio.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h
 jiliang\gpio.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
 jiliang\gpio.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
-jiliang\gpio.o: D:\programFiles\KEIL5\ARM\ARMCC\Bin\..\include\stddef.h
+jiliang\gpio.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 jiliang\gpio.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h
 jiliang\gpio.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h
 jiliang\gpio.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio_ex.h
@@ -27,4 +27,6 @@ jiliang\gpio.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h
 jiliang\gpio.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
 jiliang\gpio.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h
 jiliang\gpio.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
+jiliang\gpio.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
+jiliang\gpio.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
 jiliang\gpio.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h

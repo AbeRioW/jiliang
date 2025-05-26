@@ -29,19 +29,26 @@ extern "C" {
 #include "main.h"
 
 /* USER CODE BEGIN Includes */
-
+#include "stdbool.h"
 /* USER CODE END Includes */
 
 extern UART_HandleTypeDef huart1;
+
+extern UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
 
 void MX_USART1_UART_Init(void);
+void MX_USART2_UART_Init(void);
 
 /* USER CODE BEGIN Prototypes */
 void uart1_send_messageCALL(void);
+void anshi_chiyao(void);
+
+void xinlv_yichang(void);
+void uart1_send_messageXIN(void);
 /* USER CODE END Prototypes */
 
 #ifdef __cplusplus

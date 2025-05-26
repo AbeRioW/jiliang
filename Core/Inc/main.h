@@ -31,7 +31,9 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+extern int timer_set;
+extern int hr_set;
+extern  float num_d;
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
